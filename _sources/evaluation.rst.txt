@@ -1,0 +1,21 @@
+evaluation package
+==================
+
+Submodules
+----------
+
+evaluation.eval module
+----------------------
+
+.. automodule:: evaluation.eval
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: evaluation
+   :members:
+   :undoc-members:
+   :show-inheritance:

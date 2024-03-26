@@ -1,0 +1,37 @@
+models package
+==============
+
+Submodules
+----------
+
+models.model module
+-------------------
+
+.. automodule:: models.model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+models.naive\_models module
+---------------------------
+
+.. automodule:: models.naive_models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+models.sklearn\_model module
+----------------------------
+
+.. automodule:: models.sklearn_model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: models
+   :members:
+   :undoc-members:
+   :show-inheritance:

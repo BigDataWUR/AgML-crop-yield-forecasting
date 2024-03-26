@@ -1,0 +1,29 @@
+util package
+============
+
+Submodules
+----------
+
+util.data module
+----------------
+
+.. automodule:: util.data
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+util.torch module
+-----------------
+
+.. automodule:: util.torch
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: util
+   :members:
+   :undoc-members:
+   :show-inheritance:
