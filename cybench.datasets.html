@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cybench.datasets package &mdash; AgML-crop-yield-forecasting  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AgML-crop-yield-forecasting
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">cybench.datasets package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-cybench.datasets.alignment">cybench.datasets.alignment module</a><ul>
+<li><a class="reference internal" href="#cybench.datasets.alignment._add_cutoff_days"><code class="docutils literal notranslate"><span class="pre">_add_cutoff_days()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.alignment.align_data"><code class="docutils literal notranslate"><span class="pre">align_data()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.alignment.trim_to_lead_time"><code class="docutils literal notranslate"><span class="pre">trim_to_lead_time()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-cybench.datasets.configured">cybench.datasets.configured module</a><ul>
+<li><a class="reference internal" href="#cybench.datasets.configured._add_year"><code class="docutils literal notranslate"><span class="pre">_add_year()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.configured._preprocess_time_series_data"><code class="docutils literal notranslate"><span class="pre">_preprocess_time_series_data()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.configured.load_dfs"><code class="docutils literal notranslate"><span class="pre">load_dfs()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.configured.load_dfs_crop"><code class="docutils literal notranslate"><span class="pre">load_dfs_crop()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-cybench.datasets.dataset">cybench.datasets.dataset module</a><ul>
+<li><a class="reference internal" href="#cybench.datasets.dataset.Dataset"><code class="docutils literal notranslate"><span class="pre">Dataset</span></code></a><ul>
+<li><a class="reference internal" href="#cybench.datasets.dataset.Dataset._empty_df_target"><code class="docutils literal notranslate"><span class="pre">Dataset._empty_df_target()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.dataset.Dataset._filter_df_on_index"><code class="docutils literal notranslate"><span class="pre">Dataset._filter_df_on_index()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.dataset.Dataset._get_feature_data"><code class="docutils literal notranslate"><span class="pre">Dataset._get_feature_data()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.dataset.Dataset._split_df_on_index"><code class="docutils literal notranslate"><span class="pre">Dataset._split_df_on_index()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.dataset.Dataset._validate_dfs"><code class="docutils literal notranslate"><span class="pre">Dataset._validate_dfs()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.dataset.Dataset.crop"><code class="docutils literal notranslate"><span class="pre">Dataset.crop</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.dataset.Dataset.feature_names"><code class="docutils literal notranslate"><span class="pre">Dataset.feature_names</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.dataset.Dataset.indices"><code class="docutils literal notranslate"><span class="pre">Dataset.indices()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.dataset.Dataset.load"><code class="docutils literal notranslate"><span class="pre">Dataset.load()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.dataset.Dataset.location_ids"><code class="docutils literal notranslate"><span class="pre">Dataset.location_ids</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.dataset.Dataset.max_date"><code class="docutils literal notranslate"><span class="pre">Dataset.max_date</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.dataset.Dataset.min_date"><code class="docutils literal notranslate"><span class="pre">Dataset.min_date</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.dataset.Dataset.split_on_years"><code class="docutils literal notranslate"><span class="pre">Dataset.split_on_years()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.dataset.Dataset.targets"><code class="docutils literal notranslate"><span class="pre">Dataset.targets()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.dataset.Dataset.years"><code class="docutils literal notranslate"><span class="pre">Dataset.years</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cybench-datasets-dataset-overview-module">cybench.datasets.dataset_overview module</a></li>
+<li><a class="reference internal" href="#module-cybench.datasets.dataset_torch">cybench.datasets.dataset_torch module</a><ul>
+<li><a class="reference internal" href="#cybench.datasets.dataset_torch.TorchDataset"><code class="docutils literal notranslate"><span class="pre">TorchDataset</span></code></a><ul>
+<li><a class="reference internal" href="#cybench.datasets.dataset_torch.TorchDataset._cast_to_tensor"><code class="docutils literal notranslate"><span class="pre">TorchDataset._cast_to_tensor()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.dataset_torch.TorchDataset.collate_fn"><code class="docutils literal notranslate"><span class="pre">TorchDataset.collate_fn()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-cybench.datasets.transforms">cybench.datasets.transforms module</a><ul>
+<li><a class="reference internal" href="#cybench.datasets.transforms._transform_ts_input_to_dekadal"><code class="docutils literal notranslate"><span class="pre">_transform_ts_input_to_dekadal()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.transforms.transform_stack_ts_static_inputs"><code class="docutils literal notranslate"><span class="pre">transform_stack_ts_static_inputs()</span></code></a></li>
+<li><a class="reference internal" href="#cybench.datasets.transforms.transform_ts_inputs_to_dekadal"><code class="docutils literal notranslate"><span class="pre">transform_ts_inputs_to_dekadal()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-cybench.datasets">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AgML-crop-yield-forecasting</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">cybench.datasets package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cybench.datasets.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cybench-datasets-package">
+<h1>cybench.datasets package<a class="headerlink" href="#cybench-datasets-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-cybench.datasets.alignment">
+<span id="cybench-datasets-alignment-module"></span><h2>cybench.datasets.alignment module<a class="headerlink" href="#module-cybench.datasets.alignment" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="cybench.datasets.alignment._add_cutoff_days">
+<span class="sig-prename descclassname"><span class="pre">cybench.datasets.alignment.</span></span><span class="sig-name descname"><span class="pre">_add_cutoff_days</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lead_time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cybench.datasets.alignment._add_cutoff_days" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cybench.datasets.alignment.align_data">
+<span class="sig-prename descclassname"><span class="pre">cybench.datasets.alignment.</span></span><span class="sig-name descname"><span class="pre">align_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dfs_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#cybench.datasets.alignment.align_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cybench.datasets.alignment.trim_to_lead_time">
+<span class="sig-prename descclassname"><span class="pre">cybench.datasets.alignment.</span></span><span class="sig-name descname"><span class="pre">trim_to_lead_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crop_cal_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lead_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spinup_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">90</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cybench.datasets.alignment.trim_to_lead_time" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-cybench.datasets.configured">
+<span id="cybench-datasets-configured-module"></span><h2>cybench.datasets.configured module<a class="headerlink" href="#module-cybench.datasets.configured" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="cybench.datasets.configured._add_year">
+<span class="sig-prename descclassname"><span class="pre">cybench.datasets.configured.</span></span><span class="sig-name descname"><span class="pre">_add_year</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#cybench.datasets.configured._add_year" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cybench.datasets.configured._preprocess_time_series_data">
+<span class="sig-prename descclassname"><span class="pre">cybench.datasets.configured.</span></span><span class="sig-name descname"><span class="pre">_preprocess_time_series_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select_cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_crop_cal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lead_time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cybench.datasets.configured._preprocess_time_series_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cybench.datasets.configured.load_dfs">
+<span class="sig-prename descclassname"><span class="pre">cybench.datasets.configured.</span></span><span class="sig-name descname"><span class="pre">load_dfs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lead_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mid-season'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#cybench.datasets.configured.load_dfs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cybench.datasets.configured.load_dfs_crop">
+<span class="sig-prename descclassname"><span class="pre">cybench.datasets.configured.</span></span><span class="sig-name descname"><span class="pre">load_dfs_crop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crop</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#cybench.datasets.configured.load_dfs_crop" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-cybench.datasets.dataset">
+<span id="cybench-datasets-dataset-module"></span><h2>cybench.datasets.dataset module<a class="headerlink" href="#module-cybench.datasets.dataset" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cybench.datasets.dataset.Dataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cybench.datasets.dataset.</span></span><span class="sig-name descname"><span class="pre">Dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cybench.datasets.dataset.Dataset" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cybench.datasets.dataset.Dataset._empty_df_target">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_empty_df_target</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#cybench.datasets.dataset.Dataset._empty_df_target" title="Link to this definition"></a></dt>
+<dd><p>Helper function that creates an empty (but rightly formatted) dataframe for yield statistics</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cybench.datasets.dataset.Dataset._filter_df_on_index">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_filter_df_on_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cybench.datasets.dataset.Dataset._filter_df_on_index" title="Link to this definition"></a></dt>
+<dd><p>Helper method for filtering a dataframe based on the occurrence of certain values in a specified index</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> – the dataframe that should be filtered</p></li>
+<li><p><strong>keys</strong> – the values on which it should filter</p></li>
+<li><p><strong>level</strong> – the index level in which samples should be filtered</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a filtered dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cybench.datasets.dataset.Dataset._get_feature_data">
+<span class="sig-name descname"><span class="pre">_get_feature_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loc_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#cybench.datasets.dataset.Dataset._get_feature_data" title="Link to this definition"></a></dt>
+<dd><p>Helper function for obtaining feature data corresponding to some index
+:param loc_id: location index value
+:param year: year index value
+:return: a dict containing all feature data corresponding to the specified index</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cybench.datasets.dataset.Dataset._split_df_on_index">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_split_df_on_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cybench.datasets.dataset.Dataset._split_df_on_index" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cybench.datasets.dataset.Dataset._validate_dfs">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_validate_dfs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dfs_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#cybench.datasets.dataset.Dataset._validate_dfs" title="Link to this definition"></a></dt>
+<dd><p>Helper function that implements some checks on whether the input dataframes are correctly formatted</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df_y</strong> – dataframe containing yield statistics</p></li>
+<li><p><strong>dfs_x</strong> – list of dataframes each containing feature data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a bool indicating whether the test has passed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cybench.datasets.dataset.Dataset.crop">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">crop</span></span><a class="headerlink" href="#cybench.datasets.dataset.Dataset.crop" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cybench.datasets.dataset.Dataset.feature_names">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">feature_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">set</span></em><a class="headerlink" href="#cybench.datasets.dataset.Dataset.feature_names" title="Link to this definition"></a></dt>
+<dd><p>Obtain a set containing all feature names</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cybench.datasets.dataset.Dataset.indices">
+<span class="sig-name descname"><span class="pre">indices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#cybench.datasets.dataset.Dataset.indices" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cybench.datasets.dataset.Dataset.load">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cybench.datasets.dataset.Dataset" title="cybench.datasets.dataset.Dataset"><span class="pre">Dataset</span></a></span></span><a class="headerlink" href="#cybench.datasets.dataset.Dataset.load" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cybench.datasets.dataset.Dataset.location_ids">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">location_ids</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">set</span></em><a class="headerlink" href="#cybench.datasets.dataset.Dataset.location_ids" title="Link to this definition"></a></dt>
+<dd><p>Obtain a set containing all location ids occurring in the dataset</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cybench.datasets.dataset.Dataset.max_date">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_date</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#cybench.datasets.dataset.Dataset.max_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cybench.datasets.dataset.Dataset.min_date">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">min_date</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#cybench.datasets.dataset.Dataset.min_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cybench.datasets.dataset.Dataset.split_on_years">
+<span class="sig-name descname"><span class="pre">split_on_years</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">years_split</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#cybench.datasets.dataset.Dataset.split_on_years" title="Link to this definition"></a></dt>
+<dd><p>Create two new datasets based on the provided split in years</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>years_split</strong> – tuple e.g ([2012, 2014], [2013, 2015])</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>two data sets</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cybench.datasets.dataset.Dataset.targets">
+<span class="sig-name descname"><span class="pre">targets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#cybench.datasets.dataset.Dataset.targets" title="Link to this definition"></a></dt>
+<dd><p>Obtain an numpy array of targets or labels</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cybench.datasets.dataset.Dataset.years">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">years</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">set</span></em><a class="headerlink" href="#cybench.datasets.dataset.Dataset.years" title="Link to this definition"></a></dt>
+<dd><p>Obtain a set containing all years occurring in the dataset</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="cybench-datasets-dataset-overview-module">
+<h2>cybench.datasets.dataset_overview module<a class="headerlink" href="#cybench-datasets-dataset-overview-module" title="Link to this heading"></a></h2>
+</section>
+<section id="module-cybench.datasets.dataset_torch">
+<span id="cybench-datasets-dataset-torch-module"></span><h2>cybench.datasets.dataset_torch module<a class="headerlink" href="#module-cybench.datasets.dataset_torch" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cybench.datasets.dataset_torch.TorchDataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cybench.datasets.dataset_torch.</span></span><span class="sig-name descname"><span class="pre">TorchDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cybench.datasets.dataset.Dataset" title="cybench.datasets.dataset.Dataset"><span class="pre">Dataset</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cybench.datasets.dataset_torch.TorchDataset" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cybench.datasets.dataset_torch.TorchDataset._cast_to_tensor">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_cast_to_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#cybench.datasets.dataset_torch.TorchDataset._cast_to_tensor" title="Link to this definition"></a></dt>
+<dd><p>Create a sample with all data cast to torch tensors
+:param sample: the sample to convert
+:return: the converted data sample</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cybench.datasets.dataset_torch.TorchDataset.collate_fn">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">collate_fn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#cybench.datasets.dataset_torch.TorchDataset.collate_fn" title="Link to this definition"></a></dt>
+<dd><p>Function that takes a list of data samples (as dicts, containing torch tensors) and converts it to a dict of
+batched torch tensors
+:param samples: a list of data samples
+:return: a dict with batched data</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cybench.datasets.transforms">
+<span id="cybench-datasets-transforms-module"></span><h2>cybench.datasets.transforms module<a class="headerlink" href="#module-cybench.datasets.transforms" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="cybench.datasets.transforms._transform_ts_input_to_dekadal">
+<span class="sig-prename descclassname"><span class="pre">cybench.datasets.transforms.</span></span><span class="sig-name descname"><span class="pre">_transform_ts_input_to_dekadal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cybench.datasets.transforms._transform_ts_input_to_dekadal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cybench.datasets.transforms.transform_stack_ts_static_inputs">
+<span class="sig-prename descclassname"><span class="pre">cybench.datasets.transforms.</span></span><span class="sig-name descname"><span class="pre">transform_stack_ts_static_inputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cybench.datasets.transforms.transform_stack_ts_static_inputs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cybench.datasets.transforms.transform_ts_inputs_to_dekadal">
+<span class="sig-prename descclassname"><span class="pre">cybench.datasets.transforms.</span></span><span class="sig-name descname"><span class="pre">transform_ts_inputs_to_dekadal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cybench.datasets.transforms.transform_ts_inputs_to_dekadal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-cybench.datasets">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cybench.datasets" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Wageningen University and Research.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
